@@ -1,0 +1,8 @@
+@import '../../../assets/scss/helpers';
+
+:host {
+  @include flex($ai: center, $jc: center);
+
+  width: 100vw;
+  height: 100vh;
+}

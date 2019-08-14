@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700&display=swap&subset=cyrillic');
+
+@import './assets/css/normalize.css';
+@import './assets/scss/variables';
+
+body {
+  font-family: $mainFont;
+  letter-spacing: -0.3px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
