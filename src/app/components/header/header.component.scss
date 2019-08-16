@@ -1,0 +1,21 @@
+@import '../../../assets/scss/helpers';
+
+:host {
+  display: block;
+  background-color: var(--primary-color);
+}
+
+.header {
+  @include flex($ai: center, $jc: flex-end);
+
+  width: 100%;
+  height: 60px;
+
+  .actions {
+    @include flex();
+
+    button {
+      margin: 0 10px;
+    }
+  }
+}

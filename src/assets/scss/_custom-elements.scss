@@ -1,0 +1,33 @@
+@import './_helpers.scss';
+@import './media';
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+
+  @include desktop {
+    width: $desktop-width;
+  }
+}
+
+.primary-button {
+  @include flex($ai: center, $jc: center);
+
+  cursor: pointer;
+  position: relative;
+  min-width: 100px;
+  height: 30px;
+  color: var(--white);
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 3px;
+  transition: .2s ease-in-out;
+
+  &:hover {
+    background-color: var(--fourth-color);
+  }
+
+  &:active {
+    top: 1px;
+  }
+}

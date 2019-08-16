@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
+import { HeaderComponent } from 'app/components/header/header.component';
+import { FooterComponent } from 'app/components/footer/footer.component';
 import { LoginComponent } from 'app/pages/login/login.component';
 import { RegisterComponent } from 'app/pages/register/register.component';
 
@@ -10,9 +13,12 @@ import { RegisterComponent } from 'app/pages/register/register.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   declarations: [
+    HeaderComponent,
+    FooterComponent,
     LoginComponent,
     RegisterComponent
   ],
@@ -20,6 +26,8 @@ import { RegisterComponent } from 'app/pages/register/register.component';
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+    HeaderComponent,
+    FooterComponent,
     LoginComponent,
     RegisterComponent
   ],

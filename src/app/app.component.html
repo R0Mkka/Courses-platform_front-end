@@ -1,1 +1,13 @@
-<router-outlet></router-outlet>
+<div [ngClass]="['page', currentColorPalette]">
+  <div class="page__header">
+    <ar-header></ar-header>
+  </div>
+  
+  <div class="page__content">
+    <router-outlet></router-outlet>
+  </div>
+  
+  <div class="page__footer">
+    <ar-footer></ar-footer>
+  </div>
+</div>

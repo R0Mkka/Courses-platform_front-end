@@ -2,13 +2,14 @@
 
 @import './assets/css/normalize.css';
 @import './assets/scss/variables';
+@import './assets/scss/colors';
+@import './assets/scss/custom-elements';
 
 body {
   font-family: $mainFont;
   letter-spacing: -0.3px;
 }
 
-* {
-  box-sizing: border-box;
+button {
+  outline: none;
 }
-

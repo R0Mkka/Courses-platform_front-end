@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { UserService } from 'app/core/services/user.service';
+import { AuthService } from 'app/core/services/auth.service';
 
 @Component({
   selector: 'ar-register',
@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private usersService: UserService
+    private authService: AuthService
   ) { }
 
   public ngOnInit(): void {
@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
 
   public submit(): void {
     if (this.registerForm.valid) {
-      this.usersService.register(this.registerForm.value)
+      this.authService.register(this.registerForm.value)
       .subscribe(value => console.log(value));
     } else {
       console.error('Form invalid!');

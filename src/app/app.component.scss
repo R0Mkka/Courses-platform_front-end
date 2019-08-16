@@ -1,0 +1,22 @@
+@import '../assets/scss/helpers';
+
+.page {
+  @include flex(column);
+
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--white);
+
+  &__header {
+    flex-shrink: 0;
+  }
+
+  &__content {
+    flex-grow: 1;
+  }
+
+  &__footer {
+    flex-shrink: 0;
+  }
+}

@@ -1,1 +1,25 @@
-<p>header works!</p>
+<div class="container">
+  <div class="header">
+    <div class="actions">
+      <ng-container *ngIf="isLoggedIn; else loggedOut">
+        <button class="actions__profile primary-button" routerLink="/profile">
+          {{ authService?.getUserDetails()?.firstName }}
+        </button>
+
+        <button class="actions__log-out primary-button" (click)="authService.logout()">
+          Logout
+        </button>
+      </ng-container>
+
+      <ng-template #loggedOut>
+        <button class="actions__sign-up primary-button" routerLink="/register">
+          Sign up
+        </button>
+
+        <button class="actions__sign-in primary-button" routerLink="/login">
+          Sign in
+        </button>
+      </ng-template>
+    </div>
+  </div>
+</div>

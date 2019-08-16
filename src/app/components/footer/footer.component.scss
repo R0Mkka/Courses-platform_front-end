@@ -1,0 +1,13 @@
+@import '../../../assets/scss/helpers';
+@import '../../../assets/scss/variables';
+
+:host {
+  display: block;
+  background-color: var(--primary-color);
+}
+
+.footer {
+  @include flex($ai: center);
+
+  height: 60px;
+}

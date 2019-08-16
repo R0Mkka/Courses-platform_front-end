@@ -1,7 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
-import { UserService } from 'app/core/services/user.service';
+import { AuthService } from 'app/core/services/auth.service';
 
 @Component({
   selector: 'ar-login',
@@ -13,8 +14,9 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
 
   constructor(
+    private router: Router,
     private formBuilder: FormBuilder,
-    private usersService: UserService
+    private authService: AuthService
   ) { }
 
   public ngOnInit(): void {
@@ -22,8 +24,11 @@ export class LoginComponent implements OnInit {
   }
 
   public submit(): void {
-    this.usersService.login(this.loginForm.value)
-      .subscribe(value => console.log(value));
+    this.authService.login(this.loginForm.value)
+      .subscribe(
+        () => this.router.navigateByUrl('/profile'),
+        (error) => console.log(error)
+      );
   }
 
   private initForm(): void {
