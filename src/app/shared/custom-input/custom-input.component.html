@@ -1,0 +1,21 @@
+<label
+  class="input-label"
+  [for]="id"
+>
+  {{ label }}
+  {{ required ? '*' : '' }}
+</label>
+
+<input
+  class="input-field"
+  autocomplete="false"
+  [class.error]="!!error"
+  [id]="id"
+  [type]="type"
+  [name]="name"
+  [placeholder]="placeholder"
+  [readOnly]="readonly"
+  [required]="required"
+  (input)="onChange($event.target.value)"
+  (focus)="onFocus()"
+>

@@ -5,3 +5,38 @@
 
   height: 100%;
 }
+
+.login-container {
+  @include flex(column, center, center);
+  @include font(20px, var(--white), 300);
+
+  width: 400px;
+  height: 300px;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.header {
+  @include flex($ai: center, $fsh: 0);
+
+  width: 100%;
+  height: 50px;
+  padding: 0 20px;
+  background-color: var(--secondary-color);
+}
+
+.form {
+  @include flex(column, $jc: center, $fg: 1);
+
+  width: 100%;
+  padding: 20px;
+}
+
+.actions {
+  @include flex($ai: center, $fsh: 0);
+
+  width: 100%;
+  padding: 10px 20px;
+  background-color: var(--secondary-color);
+}

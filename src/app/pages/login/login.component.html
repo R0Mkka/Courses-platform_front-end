@@ -1,17 +1,26 @@
 <div class="login-container">
-  <h1>Login</h1>
+  <div class="header">
+    <span>Вход в систему</span>
+  </div>
 
-  <form [formGroup]="loginForm">
-    <div>
-      <label for="email">Email:</label>
-      <input type="email" id="email" formControlName="email" name="email">
-    </div>
-
-    <div>
-      <label for="password">Password:</label>
-      <input type="password" id="password" formControlName="password">
-    </div>
+  <form class="form" [formGroup]="loginForm">
+    <ar-input
+      *ngFor="let field of loginFormConfig"
+      [id]="field.id"
+      [label]="field.label"
+      [type]="field.type"
+      [name]="field.inputName"
+      [error]="field.error"
+      [required]="field.required"
+      [readonly]="field.readonly"
+      [placeholder]="field.placeholder"
+      [formControlName]="field.controlName"
+      (focusEvent)="onFocus($event)"
+      >
+    </ar-input>
   </form>
 
-  <button class="submit-button" (click)="submit()">Log In</button>
+  <div class="actions">
+    <button class="login-button secondary-button" (click)="login()">Войти</button>
+  </div>
 </div>

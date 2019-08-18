@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { ProfileRoutingModule } from './profile-routing.module';
 
-import { ProfileComponent } from './component/profile.component';
-import { CoursesComponent } from './courses/courses.component';
+import { ProfileComponent } from './profile.component';
+import { CoursesComponent } from './components/courses/courses.component';
 
 @NgModule({
   imports: [

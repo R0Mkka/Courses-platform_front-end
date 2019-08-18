@@ -9,11 +9,14 @@ import { FooterComponent } from 'app/components/footer/footer.component';
 import { LoginComponent } from 'app/pages/login/login.component';
 import { RegisterComponent } from 'app/pages/register/register.component';
 
+import { CustomInputModule } from 'app/shared/custom-input/custom-input.module';
+
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+    CustomInputModule,
     RouterModule
   ],
   declarations: [
@@ -26,6 +29,7 @@ import { RegisterComponent } from 'app/pages/register/register.component';
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+    CustomInputModule,
     HeaderComponent,
     FooterComponent,
     LoginComponent,

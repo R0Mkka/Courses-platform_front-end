@@ -1,0 +1,48 @@
+@import '../../../assets/scss/helpers';
+
+@mixin placeholder($color) {
+  &::-webkit-input-placeholder { color: $color; }
+  &::-moz-placeholder { color: $color; }
+  &:-ms-input-placeholder { color: $color; }
+  &:-moz-placeholder { color: $color; }
+}
+
+:host {
+  @include flex(column);
+
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.input-label {
+  @include font(18px, var(--white), 400);
+
+  padding: 5px 0;
+}
+
+.input-field {
+  @include font(16px, var(--black), 300);
+
+  padding: 5px 10px;
+  background-color: var(--white);
+  border: none;
+  border-radius: 3px;
+  transition: .2s all ease-in-out;
+
+  @include placeholder(var(--placeholder-color));
+
+  &.error {
+    color: var(--white);
+    background-color: rgba($color: #ff9191, $alpha: .9);
+
+    @include placeholder(var(--white));
+  }
+
+  &[readonly] {
+    cursor: not-allowed;
+    color: var(--white);
+    background-color: var(--placeholder-color);
+
+    @include placeholder(var(--white));
+  }
+}

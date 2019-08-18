@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 
 import { AuthService } from 'app/core/services/auth.service';
 
+import { ICustomField } from 'app/models/forms.models';
+import { loginFormConfig } from './login.config';
+
 @Component({
   selector: 'ar-login',
   templateUrl: './login.component.html',
@@ -12,6 +15,7 @@ import { AuthService } from 'app/core/services/auth.service';
 })
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
+  public loginFormConfig: ICustomField[] = loginFormConfig;
 
   constructor(
     private router: Router,
@@ -23,18 +27,34 @@ export class LoginComponent implements OnInit {
     this.initForm();
   }
 
-  public submit(): void {
-    this.authService.login(this.loginForm.value)
-      .subscribe(
-        () => this.router.navigateByUrl('/profile'),
-        (error) => console.log(error)
-      );
+  public login(): void {
+    if (this.loginForm.valid) {
+      this.authService.login(this.loginForm.value)
+        .subscribe(
+          () => this.router.navigateByUrl('/profile'),
+          (error) => console.log(error)
+        );
+    } else {
+      for (const controlName of Object.keys(this.loginForm.controls)) {
+        if (!!this.loginForm.get(controlName).errors) {
+          this.loginFormConfig.find((field: ICustomField) => field.controlName === controlName).error = 'Ошибка!';
+        }
+      }
+    }
+  }
+
+  public onFocus(id: string): void {
+    this.loginFormConfig.find((field: ICustomField) => field.id === id).error = null;
   }
 
   private initForm(): void {
-    this.loginForm = this.formBuilder.group({
-      email: [''],
-      password: ['']
-    });
+    this.loginForm = this.formBuilder.group(
+      this.loginFormConfig.reduce((accumulator, current) => ({
+        ...accumulator,
+        [current.controlName]: [ current.initialValue || '', current.validators ]
+      }), {})
+    );
+
+    this.loginForm.valueChanges.subscribe(value => console.log(value));
   }
 }
