@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
-import { AuthService } from 'app/core/services/auth.service';
+import { LocalStorageService, LocalStorageItems } from 'app/core/services/local-storage.service';
 
 import { IUser } from 'app/models/user.models';
 
@@ -13,13 +13,13 @@ import { IUser } from 'app/models/user.models';
 export class ProfileComponent implements OnInit {
   public user: IUser;
 
-  constructor(private authService: AuthService) { }
+  constructor(private localStorageService: LocalStorageService) { }
 
   public ngOnInit(): void {
-    this.authService.getCurrentUser().subscribe(user => {
-      this.user = user;
-
-      console.log(this.user);
-    });
+    if (this.localStorageService.has(LocalStorageItems.User)) {
+      this.user = JSON.parse(this.localStorageService.get(LocalStorageItems.User));
+    } else {
+      console.log('no user');
+    }
   }
 }

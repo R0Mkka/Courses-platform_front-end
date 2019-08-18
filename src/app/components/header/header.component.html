@@ -3,7 +3,7 @@
     <div class="actions">
       <ng-container *ngIf="isLoggedIn; else loggedOut">
         <button class="actions__profile primary-button" routerLink="/profile">
-          {{ authService?.getUserDetails()?.firstName }}
+          {{ user?.firstName }}
         </button>
 
         <button class="actions__log-out primary-button" (click)="authService.logout()">

@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
 
+export enum LocalStorageItems {
+  Token = 'MeanToken',
+  User = 'CurrentUser'
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -8,6 +13,10 @@ export class LocalStorageService {
 
   public get(key: string): string {
     return this.storage.getItem(key);
+  }
+
+  public getAsObject<T>(key: string): T {
+    return JSON.parse(this.get(key)) as T;
   }
 
   public set(key: string, value: string): void {

@@ -1,7 +1,10 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { AuthService } from 'app/core/services/auth.service';
+
+import { ITokenResponse } from 'app/models/auth.models';
 
 @Component({
   selector: 'ar-register',
@@ -13,6 +16,7 @@ export class RegisterComponent implements OnInit {
   public registerForm: FormGroup;
 
   constructor(
+    private router: Router,
     private formBuilder: FormBuilder,
     private authService: AuthService
   ) { }
@@ -24,7 +28,11 @@ export class RegisterComponent implements OnInit {
   public submit(): void {
     if (this.registerForm.valid) {
       this.authService.register(this.registerForm.value)
-      .subscribe(value => console.log(value));
+      .subscribe((data: ITokenResponse) => {
+        if (!!data.token) {
+          this.router.navigateByUrl('/login');
+        }
+      });
     } else {
       console.error('Form invalid!');
     }
