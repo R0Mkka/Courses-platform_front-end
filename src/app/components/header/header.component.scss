@@ -17,10 +17,12 @@
   @include flex($ai: center, $fg: 1);
 
   &__photo {
+    @include flex($ai: center, $jc: center);
+
     width: 40px;
     height: 40px;
     margin-right: 10px;
-    background-color: gray;
+    background-color: var(--white);
     border-radius: 50%;
   }
 
@@ -32,8 +34,15 @@
 
   &__role {
     @include font(14px, var(--white), 300);
+  }
 
-    margin-bottom: 5px;
+  &__status {
+    align-self: flex-start;
+    width: 10px;
+    height: 10px;
+    margin: 7px;
+    background-color: #13d623;
+    border-radius: 50%;
   }
 }
 

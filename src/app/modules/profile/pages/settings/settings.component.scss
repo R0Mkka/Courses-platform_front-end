@@ -4,11 +4,12 @@
   position: relative;
   width: 200px;
   height: 200px;
-  background-color: gray;
+  background-color: var(--dark-gray);
+  border: 1px solid var(--third-color);
   border-radius: 50%;
   overflow: hidden;
 
-  img {
+  .avatar {
     position: absolute;
     top: 0;
     left: 0;

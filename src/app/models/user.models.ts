@@ -16,6 +16,7 @@ export interface INoPasswordUser {
   courses: string[];
   registrationDate: string;
   role: Roles;
+  image?: File;
 }
 
 export interface IUser extends INoPasswordUser {
