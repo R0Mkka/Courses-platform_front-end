@@ -11,12 +11,36 @@
 
   width: 100%;
   height: 60px;
+}
 
-  .actions {
-    @include flex();
+.user {
+  @include flex($ai: center, $fg: 1);
 
-    button {
-      margin: 0 10px;
-    }
+  &__photo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    background-color: gray;
+    border-radius: 50%;
+  }
+
+  &__full-name {
+    @include font(18px, var(--white), 300);
+
+    margin-bottom: 5px;
+  }
+
+  &__role {
+    @include font(14px, var(--white), 300);
+
+    margin-bottom: 5px;
+  }
+}
+
+.actions {
+  @include flex($fsh: 0);
+
+  button {
+    margin-left: 20px;
   }
 }

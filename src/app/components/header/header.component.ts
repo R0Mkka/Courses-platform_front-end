@@ -24,6 +24,10 @@ export class HeaderComponent implements OnInit {
     return this.authService.isUserLoggedIn();
   }
 
+  public get fullName(): string {
+    return `${this.user.firstName} ${this.user.lastName}`;
+  }
+
   constructor(
     public authService: AuthService,
     private userStateService: UserStateService,

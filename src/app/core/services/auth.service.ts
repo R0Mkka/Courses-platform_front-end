@@ -45,7 +45,7 @@ export class AuthService {
     this.userStateService.setState(UserStates.LoggedOut);
 
     this.token = '';
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/login');
   }
 
   public register(user: IUser): Observable<ITokenResponse> {

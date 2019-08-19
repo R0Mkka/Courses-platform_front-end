@@ -4,48 +4,28 @@
 .container {
   width: 100%;
   margin: 0 auto;
+  padding: 0 15px;
 
   @include desktop {
     width: $desktop-width;
   }
 }
 
-.primary-button {
-  @include flex($ai: center, $jc: center);
-  @include font(16px, var(--white), 300);
-
-  cursor: pointer;
-  position: relative;
-  min-width: 100px;
-  height: 30px;
-  padding: 0 20px;
-  background-color: var(--secondary-color);
-  border: none;
-  border-radius: 3px;
-  transition: .2s ease-in-out;
-
-  &:hover {
-    background-color: var(--fourth-color);
-  }
-
-  &:active {
-    top: 1px;
-  }
-}
-
+.primary-button,
 .secondary-button {
   @include flex($ai: center, $jc: center);
   @include font(16px, var(--white), 300);
 
   cursor: pointer;
   position: relative;
-  min-width: 80px;
   height: 30px;
-  padding: 0 15px;
-  background-color: var(--third-color);
   border: none;
   border-radius: 3px;
-  transition: .2s ease-in-out;
+  transition: .2s all ease-in-out;
+
+  &.active {
+    background-color: var(--fourth-color);
+  }
 
   &:hover {
     background-color: var(--fourth-color);
@@ -56,6 +36,18 @@
   }
 }
 
+.primary-button {
+  min-width: 100px;
+  padding: 0 20px;
+  background-color: var(--secondary-color);
+}
+
+.secondary-button {
+  min-width: 80px;
+  padding: 0 15px;
+  background-color: var(--third-color);
+}
+
 .animate {
-  transition: .2s ease-in-out;
+  transition: .2s all ease-in-out;
 }

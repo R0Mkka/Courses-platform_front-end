@@ -5,3 +5,37 @@
 
   height: 100%;
 }
+
+.register-container {
+  @include flex(column);
+
+  width: 400px;
+  min-height: 300px;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.header {
+  @include flex($ai: center, $fsh: 0);
+  @include font(20px, var(--white), 300);
+
+  height: 50px;
+  padding: 0 20px;
+  background-color: var(--secondary-color);
+}
+
+.form {
+  @include flex(column, $jc: center, $fg: 1);
+
+  width: 100%;
+  padding: 20px;
+}
+
+.actions {
+  @include flex($ai: center, $fsh: 0);
+
+  width: 100%;
+  padding: 10px 20px;
+  background-color: var(--secondary-color);
+}

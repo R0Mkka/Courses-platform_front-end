@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { AuthService } from 'app/core/services/auth.service';
 
 import { ITokenResponse } from 'app/models/auth.models';
+import { ICustomField } from 'app/models/forms.models';
+import { registerFormConfig } from './register.config';
 
 @Component({
   selector: 'ar-register',
@@ -14,6 +16,7 @@ import { ITokenResponse } from 'app/models/auth.models';
 })
 export class RegisterComponent implements OnInit {
   public registerForm: FormGroup;
+  public registerFormConfig: ICustomField[] = registerFormConfig;
 
   constructor(
     private router: Router,
@@ -25,26 +28,25 @@ export class RegisterComponent implements OnInit {
     this.initForm();
   }
 
-  public submit(): void {
+  public register(): void {
     if (this.registerForm.valid) {
       this.authService.register(this.registerForm.value)
-      .subscribe((data: ITokenResponse) => {
-        if (!!data.token) {
-          this.router.navigateByUrl('/login');
-        }
-      });
+        .subscribe((data: ITokenResponse) => {
+          if (!!data.token) {
+            this.router.navigateByUrl('/login');
+          }
+        });
     } else {
       console.error('Form invalid!');
     }
   }
 
   private initForm(): void {
-    this.registerForm = this.formBuilder.group({
-      firstName: ['', [Validators.required] ],
-      lastName: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-      role: ['', [Validators.required]]
-    });
+    this.registerForm = this.formBuilder.group(
+      this.registerFormConfig.reduce((accumulator, current) => ({
+        ...accumulator,
+        [current.controlName]: [ current.initialValue || '', current.validators ]
+      }), {})
+    );
   }
 }

@@ -10,8 +10,8 @@ import { RegisterComponent } from './pages/register/register.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
+    canActivate: [ AuthGuard ],
+    loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
   },
   {
     path: 'login',
@@ -22,11 +22,6 @@ const routes: Routes = [
     path: 'register',
     canActivate: [ IsLoggedOutGuard ],
     component: RegisterComponent
-  },
-  {
-    path: 'profile',
-    canActivate: [ AuthGuard ],
-    loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
   }
 ];
 

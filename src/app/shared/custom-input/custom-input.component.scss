@@ -25,9 +25,10 @@
 
   padding: 5px 10px;
   background-color: var(--white);
-  border: none;
+  border-color: var(--secondaty-color);
+  border-style: solid;
+  border-width: 0 0 0 2px;
   border-radius: 3px;
-  transition: .2s all ease-in-out;
 
   @include placeholder(var(--placeholder-color));
 

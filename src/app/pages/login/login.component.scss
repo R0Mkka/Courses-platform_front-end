@@ -11,7 +11,7 @@
   @include font(20px, var(--white), 300);
 
   width: 400px;
-  height: 300px;
+  min-height: 300px;
   background-color: var(--primary-color);
   border-radius: 5px;
   overflow: hidden;

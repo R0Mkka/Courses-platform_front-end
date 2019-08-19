@@ -1,25 +1,57 @@
 <div class="container">
   <div class="header">
-    <div class="actions">
-      <ng-container *ngIf="isLoggedIn; else loggedOut">
-        <button class="actions__profile primary-button" routerLink="/profile">
-          {{ user?.firstName }}
+    <ng-container *ngIf="isLoggedIn; else loggedOut">
+      <div class="user">
+        <div class="user__photo">
+
+        </div>
+
+        <div class="user__info">
+          <div class="user__full-name">
+            {{ fullName }}
+          </div>
+
+          <div class="user__role">
+            {{ user.role }}
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button
+          class="actions__profile primary-button"
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}"
+        >
+          Главная
+        </button>
+
+        <button
+          class="actions__settings primary-button"
+          routerLink="/settings"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}"
+        >
+          Настройки
         </button>
 
         <button class="actions__log-out primary-button" (click)="authService.logout()">
           Выход
         </button>
-      </ng-container>
+      </div>
+    </ng-container>
 
-      <ng-template #loggedOut>
-        <button class="actions__sign-up primary-button" routerLink="/register">
+    <ng-template #loggedOut>
+      <div class="actions">
+        <button class="actions__sign-up primary-button" routerLink="/register" routerLinkActive="active">
           Регистрация
         </button>
 
-        <button class="actions__sign-in primary-button" routerLink="/login">
+        <button class="actions__sign-in primary-button" routerLink="/login" routerLinkActive="active">
           Вход
         </button>
-      </ng-template>
-    </div>
+      </div>
+    </ng-template>
   </div>
 </div>

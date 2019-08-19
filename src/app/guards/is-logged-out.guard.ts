@@ -14,7 +14,7 @@ export class IsLoggedOutGuard implements CanActivate {
 
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (this.authService.isUserLoggedIn()) {
-      this.router.navigateByUrl('/profile');
+      this.router.navigateByUrl('/');
 
       return false;
     }

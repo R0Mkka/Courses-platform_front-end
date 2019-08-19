@@ -5,6 +5,7 @@ import { ProfileRoutingModule } from './profile-routing.module';
 
 import { ProfileComponent } from './profile.component';
 import { CoursesComponent } from './components/courses/courses.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { CoursesComponent } from './components/courses/courses.component';
   ],
   declarations: [
     ProfileComponent,
-    CoursesComponent
+    CoursesComponent,
+    SettingsComponent
   ],
   exports: [ ]
 })

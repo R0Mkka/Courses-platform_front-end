@@ -1,9 +1,9 @@
-<div class="login-container">
-  <div class="header">
+<div class="login-container animate">
+  <div class="header animate">
     <span>Вход в систему</span>
   </div>
 
-  <form class="form" [formGroup]="loginForm">
+  <form class="form animate" [formGroup]="loginForm">
     <ar-input
       *ngFor="let field of loginFormConfig"
       [id]="field.id"
@@ -20,7 +20,7 @@
     </ar-input>
   </form>
 
-  <div class="actions">
+  <div class="actions animate">
     <button class="login-button secondary-button" (click)="login()">Войти</button>
   </div>
 </div>
